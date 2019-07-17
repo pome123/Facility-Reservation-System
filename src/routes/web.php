@@ -14,7 +14,8 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    return view('tasks');
+    // facilities.blade.phpの”facilities”
+    return view('facilities');
 });
 
 Route::post('/task', function (Request $request) {
