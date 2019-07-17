@@ -1,5 +1,5 @@
 <?php
-use App\Task;
+use App\Facility;
 use Illuminate\Http\Request;
 
 /*
@@ -14,25 +14,30 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/', function () {
-    // facilities.blade.phpの”facilities”
-    return view('facilities');
-});
-
-Route::post('/task', function (Request $request) {
-    $validator = Validator::make($request->all(), [
-        'name' => 'required|max:255',
+    // データベースから値（facilities table）を持ってくる処理を$facilitiesに代入
+    $facilities = Facility::orderBy('created_at', 'asc')->get();
+    // facilities.blade.phpに$facilitiesを渡して処理をし(facilities.blade.php)、ブラウザに返す
+    return view('facilities', [
+        'facilities' => $facilities
     ]);
-
-    if ($validator->fails()) {
-        return redirect('/')
-            ->withInput()
-            ->withErrors($validator);
-    }
-
-    // タスク作成…
-    $task = new Task();
-    $task->name = $request->name;
-    $task->save();
-
-    return redirect('/');
 });
+
+// // データを登録する
+// Route::post('/facilities', function (Request $request) {
+//     $validator = Validator::make($request->all(), [
+//         'name' => 'required|max:255',
+//     ]);
+
+//     if ($validator->fails()) {
+//         return redirect('/')
+//             ->withInput()
+//             ->withErrors($validator);
+//     }
+
+//     // タスク作成…
+//     $facility = new Facility();
+//     $facility->name = $request->name;
+//     $facility->save();
+
+//     return redirect('/');
+// });
