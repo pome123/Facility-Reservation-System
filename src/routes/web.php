@@ -1,4 +1,6 @@
 <?php
+use App\Task;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,4 +29,9 @@ Route::post('/task', function (Request $request) {
     }
 
     // タスク作成…
+    $task = new Task();
+    $task->name = $request->name;
+    $task->save();
+
+    return redirect('/');
 });
