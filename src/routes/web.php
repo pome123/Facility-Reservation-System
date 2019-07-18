@@ -1,5 +1,7 @@
 <?php
+// Facility.phpで定義したクラスを参照
 use App\Facility;
+// Illuminateにあるものを参照
 use Illuminate\Http\Request;
 
 /*
