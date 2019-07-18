@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charaset="utf-8">
+        <meta charaset="uft-8">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="viewport" content="width=], initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Laravel Quickstart - Basic</title>
 
         <!-- CSSとJavaScript -->
@@ -20,6 +20,7 @@
         </div>
 
         @yield('content')
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     </body>
