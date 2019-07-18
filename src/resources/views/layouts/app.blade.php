@@ -13,8 +13,9 @@
     </head>
 
     <body>
-        <div class="container">
-            <nav class="navbar navbar-default">
+        <div>
+            <h1 class="text-center">施設予約システム</h1>
+            <nav>
                 <!-- ナビバーの内容 -->
             </nav>
         </div>
