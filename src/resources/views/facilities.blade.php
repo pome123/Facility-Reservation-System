@@ -59,12 +59,12 @@
 
                             <td>
                                 <!-- TODO: 削除ボタン -->
-<form action="/facility/{{ $facility->id }}" method="POST">
-    {{ csrf_field() }}
-    {{ method_field('DELETE') }}
+                                <form action="/facility/{{ $facility->id }}" method="POST">
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
 
-    <button>施設名削除</button>
-  </form>
+                                    <button>施設名削除</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach
