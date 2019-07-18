@@ -34,10 +34,19 @@ Route::post('/facility', function (Request $request) {
             ->withErrors($validator);
     }
 
-    // タスク作成…
+    // タスク作成
     $facility = new Facility();
     $facility->name = $request->name;
     $facility->save();
 
     return redirect('/');
-});
+    });
+
+
+    // 削除ボタン
+    Route::delete('/facility/{id}', function ($id) {
+        Facility::findOrFail($id)->delete();
+
+        return redirect('/');
+    });
+
