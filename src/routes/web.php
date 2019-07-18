@@ -22,22 +22,22 @@ Route::get('/', function () {
     ]);
 });
 
-// // データを登録する
-// Route::post('/facilities', function (Request $request) {
-//     $validator = Validator::make($request->all(), [
-//         'name' => 'required|max:255',
-//     ]);
+// データを登録する
+Route::post('/facility', function (Request $request) {
+    $validator = Validator::make($request->all(), [
+        'name' => 'required|max:255',
+    ]);
 
-//     if ($validator->fails()) {
-//         return redirect('/')
-//             ->withInput()
-//             ->withErrors($validator);
-//     }
+    if ($validator->fails()) {
+        return redirect('/')
+            ->withInput()
+            ->withErrors($validator);
+    }
 
-//     // タスク作成…
-//     $facility = new Facility();
-//     $facility->name = $request->name;
-//     $facility->save();
+    // タスク作成…
+    $facility = new Facility();
+    $facility->name = $request->name;
+    $facility->save();
 
-//     return redirect('/');
-// });
+    return redirect('/');
+});
