@@ -9,15 +9,15 @@
         @include('common.errors')
 
         <!-- 新タスクフォーム -->
-        <form action="/task" method="POST" class="form-horizontal">
+        <form action="/facility" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
             <!-- タスク名 -->
             <div class="form-group">
-                <label for="task" class="col-sm-3 control-label">Task</label>
+                <label for="fasility" class="col-sm-3 control-label">Task</label>
 
                 <div class="col-sm-6">
-                    <input type="text" name="name" id="task-name" class="form-control">
+                    <input type="facility" name="name" id="facility-name" class="form-control">
                 </div>
             </div>
 
@@ -40,7 +40,7 @@
         </div>
 
         <div class="panel-body">
-            <table class="table table-striped task-table">
+            <table class="table table-striped facility-table">
 
                 <!-- テーブルヘッダー -->
                 <thead>
