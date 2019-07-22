@@ -83,6 +83,7 @@
                                             {{ method_field('DELETE') }}
 
                                             <button type="submit" class="btn btn-warning center-block">
+                                                {{-- <i class="far fa-trash-alt"></i> --}}
                                                 削除
                                             </button>
                                         </form>
