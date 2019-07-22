@@ -25,7 +25,7 @@ Route::get('/', function () {
 });
 
 // データを登録する
-Route::post('/facility', function (Request $request) {
+Route::post('/facilities', function (Request $request) {
     $validator = Validator::make($request->all(), [
         'name' => 'required|max:255',
     ]);
