@@ -40,7 +40,7 @@
 
     <!-- 予約一覧 -->
     @if (count($facilities) > 0)
-    <div class="panel panel-default panel-info col-offset-sm-3">
+    <div class="panel panel-default panel-info">
         <div class="panel-heading">
             予約一覧
         </div>
