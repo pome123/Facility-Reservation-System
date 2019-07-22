@@ -8,11 +8,11 @@
         <!-- バリデーションエラーの表示 -->
         @include('common.errors')
 
-        <!-- 新タスクフォーム -->
+        <!-- 新施設フォーム -->
         <form action="/facility" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
-            <!-- タスク名 -->
+            <!-- 施設名 -->
             <div class="form-group">
                 <label for="fasility" class="col-sm-3 control-label">施設名</label>
 
@@ -23,10 +23,10 @@
                         <option>家庭科室</option>
                         <option>体育館</option>
                         <option>視聴覚室</option>
-                      </select>
+                    </select>
                 </div>
 
-                <!-- タスク追加ボタン -->
+                <!-- 予約追加ボタン -->
                 <div class="form-group">
                     <div class="col-sm-3">
                         <button type="submit" class="btn btn-default">
@@ -38,7 +38,7 @@
         </form>
     </div>
 
-    <!-- TODO: 現在のタスク -->
+    <!-- 予約一覧 -->
     @if (count($facilities) > 0)
     <div class="panel panel-default panel-info col-offset-sm-3">
         <div class="panel-heading">
