@@ -12,16 +12,20 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 
         <style>
-            .top-text {
+            .top_text {
                 text-align: center;
-                margin: 100px 0;
+                margin: 70px 0 100px 0;
+            }
+
+            .add_facility_form {
+                margin: 0 0 50px 0;
             }
         </style>
     </head>
 
     <body>
         <div>
-            <h1 class="top-text">施設予約システム</h1>
+            <h1 class="top_text">施設予約システム</h1>
             <nav>
                 <!-- ナビバーの内容 -->
             </nav>

@@ -4,7 +4,7 @@
 
     <!-- Bootstrapの定形コード… -->
 
-    <div class="panel-body">
+    <div class="panel-body add_facility_form">
         <!-- バリデーションエラーの表示 -->
         @include('common.errors')
 
@@ -40,7 +40,7 @@
 
     <!-- TODO: 現在のタスク -->
     @if (count($facilities) > 0)
-    <div class="panel panel-default panel-info">
+    <div class="panel panel-default panel-info col-offset-sm-3">
         <div class="panel-heading">
             予約一覧
         </div>
