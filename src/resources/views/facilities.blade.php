@@ -68,12 +68,12 @@
 
                                 {{-- 日時 --}}
                                 <td class="table-text text-center">
-                                    <div>{{ $facility->name }}</div>
+                                    {{-- <div>{{ $facility->name }}</div> --}}
                                 </td>
 
                                 {{-- 名前 --}}
                                 <td class="table-text text-center">
-                                    <div>{{ $facility->name }}</div>
+                                    {{-- <div>{{ $facility->name }}</div> --}}
                                 </td>
 
                                 <td>
@@ -82,7 +82,7 @@
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
 
-                                        <button type="submit" class="btn btn-warning">
+                                        <button type="submit" class="btn btn-warning center-block">
                                             削除
                                         </button>
                                     </form>
