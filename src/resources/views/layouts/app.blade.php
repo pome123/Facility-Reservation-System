@@ -25,7 +25,7 @@
 
     <body>
         <div>
-            <h1 class="top_text">施設予約システム</h1>
+            <h1 class="top_text">教室予約システム</h1>
             <nav>
                 <!-- ナビバーの内容 -->
             </nav>
