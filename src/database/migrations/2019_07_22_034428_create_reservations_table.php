@@ -15,7 +15,10 @@ class CreateReservationsTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
+            $table->bigInteger('facility_id');
+            $table->string('利用者名');
+            $table->string('period');
+            // created_at、updated_at、deleted_atを自動でつくる
             $table->timestamps();
         });
     }
