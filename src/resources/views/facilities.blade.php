@@ -9,7 +9,7 @@
         @include('common.errors')
 
         <!-- 新施設フォーム -->
-        <form action="/facility" method="POST" class="form-horizontal">
+        <form action="/facilities" method="POST" class="form-horizontal">
             {{ csrf_field() }}
 
             <!-- 施設名 -->
@@ -52,6 +52,8 @@
                     <!-- テーブルヘッダー -->
                     <thead>
                         <th>施設名</th>
+                        <th>日時</th>
+                        <th>名前</th>
                         <th>&nbsp;</th>
                     </thead>
 
@@ -59,7 +61,17 @@
                     <tbody>
                         @foreach ($facilities as $facility)
                             <tr>
-                                <!-- タスク名 -->
+                                <!--施設名 -->
+                                <td class="table-text text-center">
+                                    <div>{{ $facility->name }}</div>
+                                </td>
+
+                                {{-- 日時 --}}
+                                <td class="table-text text-center">
+                                    <div>{{ $facility->name }}</div>
+                                </td>
+
+                                {{-- 名前 --}}
                                 <td class="table-text text-center">
                                     <div>{{ $facility->name }}</div>
                                 </td>
