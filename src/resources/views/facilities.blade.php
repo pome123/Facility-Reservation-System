@@ -77,7 +77,7 @@
                                 </td>
 
                                 <td>
-                                    <!-- TODO: 削除ボタン -->
+                                    <!-- 削除ボタン -->
                                     <form action="/facility/{{ $facility->id }}" method="POST">
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
