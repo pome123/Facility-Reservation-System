@@ -47,7 +47,7 @@
             </div> --}}
             <div class="col-sm-3">&nbsp;</div>
             <div class="col-sm-6">
-                <table class="table table-hover facility-table">
+                <table class="table facility-table">
 
                     <!-- テーブルヘッダー -->
                     <thead>
