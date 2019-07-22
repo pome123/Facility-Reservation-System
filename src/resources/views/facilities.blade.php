@@ -39,47 +39,51 @@
     </div>
 
     <!-- 予約一覧 -->
-    @if (count($facilities) > 0)
-    <div class="panel panel-default panel-info">
-        <div class="panel-heading">
-            予約一覧
+    <div>
+        @if (count($facilities) > 0)
+        {{-- <div class="panel panel-default panel-info">
+            <div class="panel-heading">
+                予約一覧
+            </div> --}}
+            <div class="col-sm-3">&nbsp;</div>
+            <div class="col-sm-6">
+                <table class="table table-hover facility-table">
+
+                    <!-- テーブルヘッダー -->
+                    <thead>
+                        <th>施設名</th>
+                        <th>&nbsp;</th>
+                    </thead>
+
+                    <!-- テーブルボディー -->
+                    <tbody>
+                        @foreach ($facilities as $facility)
+                            <tr>
+                                <!-- タスク名 -->
+                                <td class="table-text">
+                                    <div>{{ $facility->name }}</div>
+                                </td>
+
+                                <td>
+                                    <!-- TODO: 削除ボタン -->
+                                    <form action="/facility/{{ $facility->id }}" method="POST">
+                                        {{ csrf_field() }}
+                                        {{ method_field('DELETE') }}
+
+                                        <button type="submit" class="btn btn-default">
+                                            削除
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                        @endforeach
+                    </tbody>
+                </table>
+            </div>
         </div>
-
-        <div class="panel-body">
-            <table class="table table-hover facility-table">
-
-                <!-- テーブルヘッダー -->
-                <thead>
-                    <th>施設名</th>
-                    <th>&nbsp;</th>
-                </thead>
-
-                <!-- テーブルボディー -->
-                <tbody>
-                    @foreach ($facilities as $facility)
-                        <tr>
-                            <!-- タスク名 -->
-                            <td class="table-text">
-                                <div>{{ $facility->name }}</div>
-                            </td>
-
-                            <td>
-                                <!-- TODO: 削除ボタン -->
-                                <form action="/facility/{{ $facility->id }}" method="POST">
-                                    {{ csrf_field() }}
-                                    {{ method_field('DELETE') }}
-
-                                    <button type="submit" class="btn btn-default">
-                                        削除
-                                    </button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+        @endif
     </div>
-@endif
+
+
 @endsection
 
