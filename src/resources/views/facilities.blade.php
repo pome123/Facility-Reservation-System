@@ -60,7 +60,7 @@
                         @foreach ($facilities as $facility)
                             <tr>
                                 <!-- タスク名 -->
-                                <td class="table-text">
+                                <td class="table-text text-center">
                                     <div>{{ $facility->name }}</div>
                                 </td>
 
@@ -70,7 +70,7 @@
                                         {{ csrf_field() }}
                                         {{ method_field('DELETE') }}
 
-                                        <button type="submit" class="btn btn-default">
+                                        <button type="submit" class="btn btn-warning">
                                             削除
                                         </button>
                                     </form>
