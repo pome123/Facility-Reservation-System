@@ -24,6 +24,9 @@ Route::get('/', function () {
     ]);
 });
 
+
+// Facilityの処理
+
 // データを登録する
 Route::post('/facility', function (Request $request) {
     $validator = Validator::make($request->all(), [
@@ -51,4 +54,3 @@ Route::delete('/facility/{id}', function ($id) {
 
     return redirect('/');
 });
-
