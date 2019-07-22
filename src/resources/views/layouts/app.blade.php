@@ -26,9 +26,9 @@
     <body>
         <div>
             <h1 class="top_text">教室予約システム</h1>
-            <nav>
+            {{-- <nav>
                 <!-- ナビバーの内容 -->
-            </nav>
+            </nav> --}}
         </div>
 
         @yield('content')
