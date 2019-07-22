@@ -42,13 +42,13 @@ Route::post('/facilities', function (Request $request) {
     $facility->save();
 
     return redirect('/');
-    });
+});
 
 
-    // 削除ボタン
-    Route::delete('/facility/{id}', function ($id) {
-        Facility::findOrFail($id)->delete();
+// 削除ボタン
+Route::delete('/facility/{id}', function ($id) {
+    Facility::findOrFail($id)->delete();
 
-        return redirect('/');
-    });
+    return redirect('/');
+});
 
