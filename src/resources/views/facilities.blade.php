@@ -17,7 +17,13 @@
                 <label for="fasility" class="col-sm-3 control-label">施設名</label>
 
                 <div class="col-sm-6">
-                    <input type="facility" name="name" id="facility-name" class="form-control">
+                    <select type="facility" name="name" id="facility-name" class="form-control">
+                        <option>会議室</option>
+                        <option>理科室</option>
+                        <option>家庭科室</option>
+                        <option>体育館</option>
+                        <option>視聴覚室</option>
+                      </select>
                 </div>
 
                 <!-- タスク追加ボタン -->
