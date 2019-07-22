@@ -39,14 +39,13 @@
     </div>
 
     <!-- 予約一覧 -->
-    <div>
+    <div class="col-sm-offset-3 col-sm-6">
         @if (count($facilities) > 0)
-            {{-- <div class="panel panel-default panel-info">
+            <div class="panel panel-default panel-info">
                 <div class="panel-heading">
                     予約一覧
-                </div> --}}
-                <div class="col-sm-3">&nbsp;</div>
-                <div class="col-sm-6">
+                </div>
+                <div>
                     <table class="table facility-table">
 
                         <!-- テーブルヘッダー -->
@@ -82,9 +81,8 @@
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
 
-                                            <button type="submit" class="btn btn-warning center-block">
-                                                {{-- <i class="far fa-trash-alt"></i> --}}
-                                                削除
+                                            <button type="submit" class="btn btn-danger center-block">
+                                                <span class="glyphicon glyphicon-trash"></span>
                                             </button>
                                         </form>
                                     </td>
