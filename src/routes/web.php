@@ -45,10 +45,10 @@ Route::post('/facility', function (Request $request) {
     });
 
 
-    // 削除ボタン
-    Route::delete('/facility/{id}', function ($id) {
-        Facility::findOrFail($id)->delete();
+// 削除ボタン
+Route::delete('/facility/{id}', function ($id) {
+    Facility::findOrFail($id)->delete();
 
-        return redirect('/');
-    });
+    return redirect('/');
+});
 
