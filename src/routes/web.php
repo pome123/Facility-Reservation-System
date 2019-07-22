@@ -3,6 +3,8 @@
 use App\Facility;
 // Illuminateにあるものを参照
 use Illuminate\Http\Request;
+// Reservation.phpで定義したクラスを参照
+use App\Reservation;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,3 +56,36 @@ Route::delete('/facility/{id}', function ($id) {
 
     return redirect('/');
 });
+
+
+// Reservationの処理
+
+// データを登録する
+Route::post('/reservation', function (Request $request) {
+    $validator = Validator::make($request->all(), [
+        'name' => 'required|max:255',
+    ]);
+
+    if ($validator->fails()) {
+        return redirect('/')
+            ->withInput()
+            ->withErrors($validator);
+    }
+
+    // タスク作成
+    $reservation = new Reservation();
+    $reservation->name = $request->name;
+    $reservation->save();
+
+    return redirect('/');
+});
+
+
+// 削除ボタン
+// Route::delete('/facility/{id}', function ($id) {
+//     Facility::findOrFail($id)->delete();
+
+//     return redirect('/');
+// });
+
+
