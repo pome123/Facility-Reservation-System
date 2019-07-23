@@ -28,7 +28,7 @@ Route::get('/', function () {
 });
 
 // データを登録する
-Route::post('/facilities', function (Request $request) {
+Route::post('/reservations', function (Request $request) {
     $validator = Validator::make($request->all(), [
         'name' => 'required|max:255',
     ]);
@@ -40,17 +40,17 @@ Route::post('/facilities', function (Request $request) {
     }
 
     // タスク作成
-    $facility = new Facility();
-    $facility->name = $request->name;
-    $facility->save();
+    $reservation = new Reservation();
+    $reservation->name = $request->name;
+    $reservation->save();
 
     return redirect('/');
 });
 
 
 // 削除ボタン
-Route::delete('/facility/{id}', function ($id) {
-    Facility::findOrFail($id)->delete();
+Route::delete('/reservation/{id}', function ($id) {
+    Reservation::findOrFail($id)->delete();
 
     return redirect('/');
 });
