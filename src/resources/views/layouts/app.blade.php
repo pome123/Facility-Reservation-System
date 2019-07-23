@@ -21,10 +21,19 @@
                 <h1 class="text-center ">教室予約システム</h1>
             </div>
         </div>
-        
+
         @yield('content')
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+        <script>
+                $('#addReservationModal').modal('show');
+                // $('#addReservationModal').on('show.bs.modal', function (event) {
+                //     // モーダルを開いたボタンを取得
+                //     var button = $(event.relatedTarget);
+                //     // モーダルを取得
+                //     var modal = $(this);
+                // });
+            </script>
     </body>
 </html>
