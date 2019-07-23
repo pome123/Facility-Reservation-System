@@ -50,7 +50,7 @@ Route::post('/facilities', function (Request $request) {
 
 // 削除ボタン
 Route::delete('/facility/{id}', function ($id) {
-    Reservation::findOrFail($id)->delete();
+    Facility::findOrFail($id)->delete();
 
     return redirect('/');
 });
