@@ -26,12 +26,31 @@
                     </select>
                 </div>
 
-                <!-- 予約追加ボタン -->
+                <!-- 予約追加ボタン(Mofal呼び出しボタン)-->
                 <div class="form-group">
                     <div class="col-sm-3">
-                        <button type="submit" class="btn btn-default">
+                        <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#addReservationModal">
                             <i class="fa fa-plus"></i>
                         </button>
+
+                        {{-- モーダル・ダイアログ --}}
+                        <div class="modal fade" id="addReservationModal" tabindex="-1">
+                            <div class="modal-dialog">
+                                 <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
+                                        <h4>タイトル</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        本文
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default">予約する</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -76,7 +95,7 @@
                                     </td>
 
                                     <td>
-                                        <!-- 削除ボタン -->
+                                        <!-- TODO:削除ボタン -->
                                         <form action="/facility/{{ $facility->id }}" method="POST">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
