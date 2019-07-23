@@ -42,6 +42,7 @@
                                         <h4>タイトル</h4>
                                     </div>
                                     <div class="modal-body">
+                                        {{-- FORM --}}
                                         本文
                                     </div>
                                     <div class="modal-footer">
