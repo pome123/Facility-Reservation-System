@@ -3,6 +3,9 @@
 use App\Facility;
 // Illuminateにあるものを参照
 use Illuminate\Http\Request;
+use App\Reservation;
+
+
 
 /*
 |--------------------------------------------------------------------------
