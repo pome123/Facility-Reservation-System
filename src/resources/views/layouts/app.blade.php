@@ -34,6 +34,6 @@
                 //     // モーダルを取得
                 //     var modal = $(this);
                 // });
-            </script>
+        </script>
     </body>
 </html>
