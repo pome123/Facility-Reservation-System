@@ -18,11 +18,9 @@
 
                 <div class="col-sm-6">
                     <select type="facility" name="name" id="facility-name" class="form-control">
-                        <option>会議室</option>
-                        <option>理科室</option>
-                        <option>家庭科室</option>
-                        <option>体育館</option>
-                        <option>視聴覚室</option>
+                        @foreach ($facilities as $facility)
+                            <option>{{ $facility->name }}</option>
+                        @endforeach
                     </select>
                 </div>
 
@@ -39,11 +37,35 @@
                                  <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal"><span>×</span></button>
-                                        <h4>タイトル</h4>
+                                        <h4>予約内容</h4>
                                     </div>
                                     <div class="modal-body">
-                                        {{-- FORM --}}
-                                        本文
+                                        {{-- TODO:FORM --}}
+                                        <form action="/period" method="POST" class="form-horizontal">
+                                            {{ csrf_field() }}
+                                            <div class="form-group">
+                                                <h4 class="col-sm-3">日時</h4>
+                                                <div class="form-inline col-sm-5">
+                                                    <input type="text" class="form-control" name="month" size="2"><label>月</label>
+                                                    <input type="text" class="form-control" name="day" size="2"><label>日</label>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <select type="period" name="name" class="form-control">
+                                                        <option>1限目</option>
+                                                        <option>2限目</option>
+                                                        <option>3限目</option>
+                                                        <option>4限目</option>
+                                                        <option>5限目</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <h4 class="">担当者</h4>
+                                                <div>
+                                                    <input type="text" class="form-control" name="month" size="10">
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default">予約する</button>
@@ -80,9 +102,14 @@
                         <tbody>
                             @foreach ($facilities as $facility)
                                 <tr>
-                                    {{-- 日時 --}}
+                                    {{-- 日にち --}}
                                     <td class="table-text text-center">
-                                            {{-- <div>{{ $facility->name }}</div> --}}
+                                        {{-- <div>{{ $facility->name }}</div> --}}
+                                    </td>
+
+                                     {{-- 時限目 --}}
+                                     <td class="table-text text-center">
+                                        {{-- <div>{{ $facility->name }}</div> --}}
                                     </td>
 
                                     <!--施設名 -->
