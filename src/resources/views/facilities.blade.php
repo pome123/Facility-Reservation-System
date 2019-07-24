@@ -46,8 +46,7 @@
                                             <div class="form-group">
                                                 <h4 class="col-sm-3">日時</h4>
                                                 <div class="form-inline col-sm-5">
-                                                    <input type="text" class="form-control" name="month" size="2"><label>月</label>
-                                                    <input type="text" class="form-control" name="day" size="2"><label>日</label>
+                                                    <input type="date" value="">
                                                 </div>
                                                 <div class="col-sm-4">
                                                     <select type="period" name="name" class="form-control">
