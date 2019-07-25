@@ -24,7 +24,7 @@
                     </select>
                 </div>
 
-                <!-- 予約追加ボタン(Mofal呼び出しボタン)-->
+                <!-- 予約追加ボタン(Modal呼び出しボタン)-->
                 <div class="form-group">
                     <div class="col-sm-3">
                         <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#addReservationModal">
