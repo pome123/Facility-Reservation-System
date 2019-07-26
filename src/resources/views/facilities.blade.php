@@ -65,7 +65,7 @@
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
-                                                <button type="submit" class="btn btn-default">予約する</button>
+                                                <button id="reservation_button" type="submit" class="btn btn-default">予約する</button>
                                             </div>
                                         </form>
                                     </div>
