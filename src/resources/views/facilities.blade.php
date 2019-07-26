@@ -9,7 +9,7 @@
         @include('common.errors')
 
         <!-- 新施設フォーム -->
-        <form action="/facilities" method="POST" class="form-horizontal">
+        {{-- <form action="/facilities" method="POST" class="form-horizontal"> --}}
             {{ csrf_field() }}
 
             <!-- 施設名 -->
@@ -31,7 +31,7 @@
                             <i class="fa fa-plus"></i>
                         </button>
 
-                        {{-- モーダル・ダイアログ --}}
+                        {{-- モーダル・ダイアログ  --}}
                         <div class="modal fade" id="addReservationModal" tabindex="-1">
                             <div class="modal-dialog">
                                  <div class="modal-content">
@@ -41,15 +41,15 @@
                                     </div>
                                     <div class="modal-body">
                                         {{-- TODO:FORM --}}
-                                        <form action="" method="POST" class="form-horizontal">
+                                        <form action="/reservations" method="POST" class="form-horizontal">
                                             {{ csrf_field() }}
                                             <div class="form-group">
                                                 <h4 class="col-sm-3">日時</h4>
                                                 <div class="form-inline col-sm-5">
-                                                    <input type="date" value="">
+                                                    <input type="date" name="date">
                                                 </div>
                                                 <div class="col-sm-4">
-                                                    <select type="period" name="name" class="form-control">
+                                                    <select name="period" class="form-control">
                                                         <option>1限目</option>
                                                         <option>2限目</option>
                                                         <option>3限目</option>
@@ -61,7 +61,7 @@
                                             <div>
                                                 <h4 class="">担当者</h4>
                                                 <div>
-                                                    <input type="text" class="form-control" name="month" size="10">
+                                                    <input type="text" class="form-control" name="reservation_user" size="10">
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        {{-- </form> --}}
     </div>
 
     <!-- 予約一覧 -->
