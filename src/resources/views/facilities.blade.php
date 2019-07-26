@@ -41,7 +41,7 @@
                                     </div>
                                     <div class="modal-body">
                                         {{-- TODO:FORM --}}
-                                        <form action="/period" method="POST" class="form-horizontal">
+                                        <form action="" method="POST" class="form-horizontal">
                                             {{ csrf_field() }}
                                             <div class="form-group">
                                                 <h4 class="col-sm-3">日時</h4>
@@ -64,10 +64,10 @@
                                                     <input type="text" class="form-control" name="month" size="10">
                                                 </div>
                                             </div>
+                                            <div class="modal-footer">
+                                                <button type="submit" class="btn btn-default">予約する</button>
+                                            </div>
                                         </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default">予約する</button>
                                     </div>
                                 </div>
                             </div>
