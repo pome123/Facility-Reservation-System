@@ -76,8 +76,8 @@ Route::post('/reservations', function (Request $request) {
 
 
 // 削除ボタン
-Route::delete('/facility/{id}', function ($id) {
-    Facility::findOrFail($id)->delete();
+Route::delete('/reservation/{id}', function ($id) {
+    Reservation::findOrFail($id)->delete();
 
     return redirect('/');
 });

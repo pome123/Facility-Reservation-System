@@ -125,7 +125,7 @@
 
                                     {{-- 削除ボタン --}}
                                     <td>
-                                        <form action="/facility/{{ $facility->id }}" method="POST">
+                                        <form action="/reservation/{{ $reservation->id }}" method="POST">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
 
