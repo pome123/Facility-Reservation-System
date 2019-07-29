@@ -53,7 +53,7 @@ Route::post('/reservations', function (Request $request) {
     $validator = Validator::make($request->all(), [
         'date' => 'required',
         'period' => 'required',
-        'facility_id' => 'required',
+        // 'facility_id' => 'required',
         'reservation_user' => 'required',
     ]);
 
@@ -66,8 +66,8 @@ Route::post('/reservations', function (Request $request) {
     // 予約一覧作成
     $reservation = new Reservation();
     $reservation->date = $request->date;
-    $reservation->period = $request->name;
-    $reservation->facility_id = $request->facility_id;
+    $reservation->period = $request->period;
+    // $reservation->facility_id = $request->facility_id;
     $reservation->reservation_user = $request->reservation_user;
     $reservation->save();
 
