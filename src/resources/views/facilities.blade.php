@@ -19,7 +19,7 @@
                 <div class="col-sm-6">
                     <select type="facility" name="name" id="facility-name" class="form-control">
                         @foreach ($facilities as $facility)
-                            <option>{{ $facility->name }}</option>
+                        <option value="{{ $facility->id }}">{{ $facility->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -27,7 +27,7 @@
                 <!-- 予約追加ボタン(Modal呼び出しボタン)-->
                 <div class="form-group">
                     <div class="col-sm-3">
-                        <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#addReservationModal">
+                        <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#addReservationModal" data-addreservation="追加ボタンのパラメーター">
                             <i class="fa fa-plus"></i>
                         </button>
 
@@ -41,7 +41,7 @@
                                     </div>
                                     <div class="modal-body">
                                         {{-- TODO:FORM --}}
-                                        <form action="/reservations" method="POST" class="form-horizontal">
+                                        <form method="POST" class="form-horizontal" id="from-addReservation">
                                             {{ csrf_field() }}
                                             <div class="form-group">
                                                 <h4 class="col-sm-3">日時</h4>
@@ -114,7 +114,7 @@
 
                                     {{-- 教室名 --}}
                                     <td class="table-text text-center">
-                                        <div>{{ $facility->name }}</div>
+                                        <div>{{ $reservation->facility_id }}</div>
                                     </td>
 
                                     {{-- 名前 --}}
