@@ -103,10 +103,6 @@
                             {{-- @foreach ($facilities as $facility) --}}
                             @foreach ($reservations as $reservation)
                                 <tr>
-                                    {{-- <td>abc</td>
-                                    <td>wer</td>
-                                    <td>sdf</td>
-                                    <td>xcv</td> --}}
                                     {{-- 日にち --}}
                                     <td class="table-text text-center">
                                         <div>{{ $reservation->date }}</div>
@@ -117,7 +113,7 @@
                                         <div>{{ $reservation->period }}</div>
                                     </td>
 
-
+                                    {{-- 教室名 --}}
                                     <td class="table-text text-center">
                                         <div>{{ $facility->name }}</div>
                                     </td>
@@ -127,8 +123,8 @@
                                         <div>{{ $reservation->reservation_user }}</div>
                                     </td>
 
+                                    {{-- 削除ボタン --}}
                                     <td>
-                                        {{-- 削除ボタン --}}
                                         <form action="/facility/{{ $facility->id }}" method="POST">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
