@@ -30,7 +30,7 @@ Route::get('/', function () {
 // データを登録する
 Route::post('/facilities', function (Request $request) {
     $validator = Validator::make($request->all(), [
-        'name' => 'required,
+        'name' => 'required',
     ]);
 
     if ($validator->fails()) {
