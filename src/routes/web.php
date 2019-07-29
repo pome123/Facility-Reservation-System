@@ -49,11 +49,10 @@ Route::post('/facilities', function (Request $request) {
     return redirect('/');
 });
 
-Route::post('/reservations', function (Request $request) {
+Route::post('/facilities/{id}/reservations', function (Request $request, $id) {
     $validator = Validator::make($request->all(), [
         'date' => 'required',
         'period' => 'required',
-        // 'facility_id' => 'required',
         'reservation_user' => 'required',
     ]);
 
@@ -67,7 +66,8 @@ Route::post('/reservations', function (Request $request) {
     $reservation = new Reservation();
     $reservation->date = $request->date;
     $reservation->period = $request->period;
-    // $reservation->facility_id = $request->facility_id;
+    // /facilities/{id}/reservationsのid(=facilityのid)を＝で結んでfacility_idと紐づける
+    $reservation->facility_id = $id;
     $reservation->reservation_user = $request->reservation_user;
     $reservation->save();
 
