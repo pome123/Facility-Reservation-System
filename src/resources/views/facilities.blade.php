@@ -91,7 +91,8 @@
 
                         <!-- テーブルヘッダー -->
                         <thead>
-                            <th>日時</th>
+                            <th>日にち</th>
+                            <th>時間</th>
                             <th>施設名</th>
                             <th>名前</th>
                             <th></th>
@@ -102,32 +103,32 @@
                             {{-- @foreach ($facilities as $facility) --}}
                             @foreach ($reservations as $reservation)
                                 <tr>
-                                    <td>abc</td>
+                                    {{-- <td>abc</td>
                                     <td>wer</td>
                                     <td>sdf</td>
-                                    <td>xcv</td>
-                                    {{-- 日にち
+                                    <td>xcv</td> --}}
+                                    {{-- 日にち --}}
                                     <td class="table-text text-center">
                                         <div>{{ $reservation->date }}</div>
                                     </td>
 
-                                     時限目
+                                     {{-- 時限目 --}}
                                      <td class="table-text text-center">
                                         <div>{{ $reservation->period }}</div>
                                     </td>
 
 
                                     <td class="table-text text-center">
-                                        <div>{{ $reservation->facility_id }}</div>
+                                        <div>{{ $facility->name }}</div>
                                     </td>
 
-                                    名前
+                                    {{-- 名前 --}}
                                     <td class="table-text text-center">
                                         <div>{{ $reservation->reservation_user }}</div>
                                     </td>
 
                                     <td>
-
+                                        {{-- 削除ボタン --}}
                                         <form action="/facility/{{ $facility->id }}" method="POST">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
@@ -136,7 +137,7 @@
                                                 <span class="glyphicon glyphicon-trash"></span>
                                             </button>
                                         </form>
-                                    </td> --}}
+                                    </td>
                                 </tr>
                             @endforeach
                             {{-- @endforeach --}}
