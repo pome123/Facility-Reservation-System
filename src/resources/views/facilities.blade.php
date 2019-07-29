@@ -100,7 +100,6 @@
 
                         <!-- テーブルボディー -->
                         <tbody>
-                            {{-- @foreach ($facilities as $facility) --}}
                             @foreach ($reservations as $reservation)
                                 <tr>
                                     {{-- 日にち --}}
@@ -136,7 +135,6 @@
                                     </td>
                                 </tr>
                             @endforeach
-                            {{-- @endforeach --}}
                         </tbody>
                     </table>
                 </div>
