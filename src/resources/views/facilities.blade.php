@@ -9,7 +9,7 @@
         @include('common.errors')
 
         <!-- 新施設フォーム -->
-        <form action="/facilities" method="POST" class="form-horizontal">
+        {{-- <form action="/facilities" method="POST" class="form-horizontal"> --}}
             {{ csrf_field() }}
 
             <!-- 施設名 -->
@@ -19,19 +19,19 @@
                 <div class="col-sm-6">
                     <select type="facility" name="name" id="facility-name" class="form-control">
                         @foreach ($facilities as $facility)
-                            <option>{{ $facility->name }}</option>
+                        <option value="{{ $facility->id }}">{{ $facility->name }}</option>
                         @endforeach
                     </select>
                 </div>
 
-                <!-- 予約追加ボタン(Mofal呼び出しボタン)-->
+                <!-- 予約追加ボタン(Modal呼び出しボタン)-->
                 <div class="form-group">
                     <div class="col-sm-3">
-                        <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#addReservationModal">
+                        <button type="submit" class="btn btn-default" data-toggle="modal" data-target="#addReservationModal" data-addreservation="追加ボタンのパラメーター">
                             <i class="fa fa-plus"></i>
                         </button>
 
-                        {{-- モーダル・ダイアログ --}}
+                        {{-- モーダル・ダイアログ  --}}
                         <div class="modal fade" id="addReservationModal" tabindex="-1">
                             <div class="modal-dialog">
                                  <div class="modal-content">
@@ -41,15 +41,15 @@
                                     </div>
                                     <div class="modal-body">
                                         {{-- TODO:FORM --}}
-                                        <form action="/period" method="POST" class="form-horizontal">
+                                        <form method="POST" class="form-horizontal" id="from-addReservation">
                                             {{ csrf_field() }}
                                             <div class="form-group">
                                                 <h4 class="col-sm-3">日時</h4>
                                                 <div class="form-inline col-sm-5">
-                                                    <input type="date" value="">
+                                                    <input type="date" name="date">
                                                 </div>
                                                 <div class="col-sm-4">
-                                                    <select type="period" name="name" class="form-control">
+                                                    <select name="period" class="form-control">
                                                         <option>1限目</option>
                                                         <option>2限目</option>
                                                         <option>3限目</option>
@@ -61,13 +61,13 @@
                                             <div>
                                                 <h4 class="">担当者</h4>
                                                 <div>
-                                                    <input type="text" class="form-control" name="month" size="10">
+                                                    <input type="text" class="form-control" name="reservation_user" size="10">
                                                 </div>
                                             </div>
+                                            <div class="modal-footer">
+                                                <button id="reservation_button" type="submit" class="btn btn-default">予約する</button>
+                                            </div>
                                         </form>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-default">予約する</button>
                                     </div>
                                 </div>
                             </div>
@@ -76,7 +76,7 @@
                     </div>
                 </div>
             </div>
-        </form>
+        {{-- </form> --}}
     </div>
 
     <!-- 予約一覧 -->
@@ -91,7 +91,8 @@
 
                         <!-- テーブルヘッダー -->
                         <thead>
-                            <th>日時</th>
+                            <th>日にち</th>
+                            <th>時間</th>
                             <th>施設名</th>
                             <th>名前</th>
                             <th></th>
@@ -99,31 +100,31 @@
 
                         <!-- テーブルボディー -->
                         <tbody>
-                            @foreach ($facilities as $facility)
+                            @foreach ($reservations as $reservation)
                                 <tr>
                                     {{-- 日にち --}}
                                     <td class="table-text text-center">
-                                        {{-- <div>{{ $facility->name }}</div> --}}
+                                        <div>{{ $reservation->date }}</div>
                                     </td>
 
                                      {{-- 時限目 --}}
                                      <td class="table-text text-center">
-                                        {{-- <div>{{ $facility->name }}</div> --}}
+                                        <div>{{ $reservation->period }}</div>
                                     </td>
 
-                                    <!--施設名 -->
+                                    {{-- 教室名 --}}
                                     <td class="table-text text-center">
-                                        <div>{{ $facility->name }}</div>
+                                        <div>{{ $reservation->facility_id }}</div>
                                     </td>
 
                                     {{-- 名前 --}}
                                     <td class="table-text text-center">
-                                        {{-- <div>{{ $facility->name }}</div> --}}
+                                        <div>{{ $reservation->reservation_user }}</div>
                                     </td>
 
+                                    {{-- 削除ボタン --}}
                                     <td>
-                                        <!-- TODO:削除ボタン -->
-                                        <form action="/facility/{{ $facility->id }}" method="POST">
+                                        <form action="/reservation/{{ $reservation->id }}" method="POST">
                                             {{ csrf_field() }}
                                             {{ method_field('DELETE') }}
 

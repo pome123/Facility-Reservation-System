@@ -21,9 +21,11 @@ use App\Reservation;
 Route::get('/', function () {
     // データベースから値（facilities table）を持ってくる処理を$facilitiesに代入
     $facilities = Facility::orderBy('created_at', 'asc')->get();
+    $reservations = Reservation::orderBy('created_at', 'asc')->get();
     // facilities.blade.phpに$facilitiesを渡して処理をし(facilities.blade.php)、ブラウザに返す
     return view('facilities', [
-        'facilities' => $facilities
+        'facilities' => $facilities,
+        'reservations' => $reservations,
     ]);
 });
 
@@ -40,17 +42,42 @@ Route::post('/facilities', function (Request $request) {
     }
 
     // タスク作成
-    $facility = new Facility();
-    $facility->name = $request->name;
-    $facility->save();
+    // $facility = new Facility();
+    // $facility->name = $request->name;
+    // $facility->save();
+
+    return redirect('/');
+});
+
+Route::post('/facilities/{id}/reservations', function (Request $request, $id) {
+    $validator = Validator::make($request->all(), [
+        'date' => 'required',
+        'period' => 'required',
+        'reservation_user' => 'required',
+    ]);
+
+    if ($validator->fails()) {
+        return redirect('/')
+            ->withInput()
+            ->withErrors($validator);
+    }
+
+    // 予約一覧作成
+    $reservation = new Reservation();
+    $reservation->date = $request->date;
+    $reservation->period = $request->period;
+    // /facilities/{id}/reservationsのid(=facilityのid)を＝で結んでfacility_idと紐づける
+    $reservation->facility_id = $id;
+    $reservation->reservation_user = $request->reservation_user;
+    $reservation->save();
 
     return redirect('/');
 });
 
 
 // 削除ボタン
-Route::delete('/facility/{id}', function ($id) {
-    Facility::findOrFail($id)->delete();
+Route::delete('/reservation/{id}', function ($id) {
+    Reservation::findOrFail($id)->delete();
 
     return redirect('/');
 });
