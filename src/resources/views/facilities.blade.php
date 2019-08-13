@@ -14,7 +14,7 @@
 
             <!-- 施設名 -->
             <div class="form-group">
-                <label for="fasility" class="col-sm-3 control-label">施設名</label>
+                <label for="facility" class="col-sm-3 control-label">施設名</label>
 
                 <div class="col-sm-6">
                     <select type="facility" name="name" id="facility-name" class="form-control">
